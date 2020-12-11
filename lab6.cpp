@@ -28,9 +28,7 @@ int main()
 
 /* Po uruchomieniu otrzymano:
   Wygenerowany wektor:
-  3 1 2 0 6 3 0 7 10 4
-  Posortowany wektor:
-  0 0 1 2 3 3 4 6 7 10
-  Liczba wystapien elementu 7:
-  1
+  6 8 0 6 8 8 9 0 5 4 
+  Wektor posortowany malejaco
+  9 8 8 8 6 6 5 4 0 0 
 */

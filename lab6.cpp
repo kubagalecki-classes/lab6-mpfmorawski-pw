@@ -185,9 +185,22 @@ void scalarProductExample()
     std::cout << ip << std::endl;
 }
 
+/* Ćwiczenie V - std::find i std::sort */
+
+void sortSubVector()
+{
+    std::vector< int > wektor = make_random_vector< int >(10, 0, 10);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_vector(wektor);
+    std::vector< int >::iterator it = std::find(wektor.begin(), wektor.end(), 7);
+    std::sort(wektor.begin(), it);
+    std::cout << "Wektor posortowany przed pierwszym wystapieniem liczbt 7:" << std::endl;
+    print_vector(wektor);
+}
+
 int main()
 {
-    scalarProductExample();
+    sortSubVector();
     return 0;
 }
 

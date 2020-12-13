@@ -280,15 +280,30 @@ void partitionAndSort()
     print_vector(wektor);
 }
 
-int main()
+/* Ćwiczenie XI - sorted_indices */
+#include <cassert>
+#include <numeric>
+
+template < typename ConstIt, typename Comp >
+std::vector< size_t > sorted_indices(ConstIt first, ConstIt last, Comp compare)
 {
-    partitionAndSort();
-    return 0;
+    std::vector< size_t > wektor(std::distance(first, last));
+    std::iota(wektor.begin(), wektor.end(), 0u);
+
+    std::sort(wektor.begin(), wektor.end(), [&](size_t a, size_t b) {
+        return compare(first[a], first[b]);
+    });
+    return wektor;
 }
 
-/* Po uruchomieniu otrzymano:
-  Wygenerowany wektor:
-  5 2 10 10 1 10 7 10 6 7 
-  Wygenerowany po partycji i posortowaniu liczb wiekszych od 6:
-  7 7 10 10 10 10 1 2 6 5 
-*/
+int main()
+{
+    std::vector< unsigned > v = {1, 4, 0, 3, 4, 5};
+    auto                    r = sorted_indices(v.begin(), v.end(), std::less< unsigned >{});
+    unsigned int            a = 0;
+    for (size_t i = 0; i < v.size(); ++i) {
+        assert(a <= v[r[i]]);
+        a = v[r[i]];
+    }
+    return 0;
+}

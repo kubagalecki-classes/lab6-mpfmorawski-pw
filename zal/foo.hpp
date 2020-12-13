@@ -21,7 +21,7 @@ std::vector< char > foo(std::list< Human >& people)
 
     std::for_each(people.begin(), people.end(), [](Human& i){
       i.birthday();
-    };
+    });
 
 
     std::reverse(ret_v.begin(), ret_v.end());

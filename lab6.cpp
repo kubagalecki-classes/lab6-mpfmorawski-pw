@@ -161,18 +161,27 @@ bool isPiesekOrKotekIn()
     }
 }
 
+/* Ćwiczenie III - std::reverse */
+
+void makeInputReversed()
+{
+    std::string s;
+    std::cout << "Podaj ciag znakow" << std::endl;
+    std::cin >> s;
+    std::reverse(s.begin(), s.end());
+    std::cout << "Ciag znakow od tylu" << std::endl;
+    std::cout << s << std::endl;
+}
+
 int main()
 {
-    if (isPiesekOrKotekIn())
-        std::cout << "Podciag piesek lub podciag kotek znaleziony" << std::endl;
-    else
-        std::cout << "Podciag piesek lub podciag kotek nie zostal znaleziony" << std::endl;
+    makeInputReversed();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
-  Podaj zmienna typu string
-  piesekotexD
-  Znaleziono podciag piesek
-  Podciag piesek lub podciag kotek znaleziony
+  Podaj ciag znakow
+  abcd
+  Ciag znakow od tylu
+  dcba
 */

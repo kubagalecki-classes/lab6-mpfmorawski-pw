@@ -249,24 +249,40 @@ void anyMoreThan0p9()
         std::cout << "Nie ma elementu wiekszego od 0.9" << std::endl;
 }
 
+/* Ćwiczenie IX - std::transform */
+
+void transformIntoSinus()
+{
+    std::vector< float > wektor = make_random_vector< float >(5, -1., 1.);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_float_vector(wektor);
+    std::vector< float > wektorSinusow(5);
+
+    std::transform(
+        wektor.begin(), wektor.end(), wektorSinusow.begin(), [&](float i) { return sin(i); });
+
+    std::cout << "Wektor sinusow:" << std::endl;
+    print_float_vector(wektorSinusow);
+}
+
 int main()
 {
-    anyMoreThan0p9();
+    transformIntoSinus();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
   Wygenerowany wektor:
+  -0.60
+  0.98
+  -0.40
   0.38
-  0.90
-  -0.61
-  0.91
-  0.83
-  -0.14
-  0.97
-  -0.39
-  0.47
-  -0.73
+  0.23
 
-  Jest element wiekszy od 0.9
+  Wektor sinusow:
+  -0.56
+  0.83
+  -0.39
+  0.37
+  0.23
 */

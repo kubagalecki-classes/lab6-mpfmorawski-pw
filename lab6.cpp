@@ -198,13 +198,36 @@ void sortSubVector()
     print_vector(wektor);
 }
 
+/* Ćwiczenie VI - std::remove i vector erase */
+
+void idiomRemoveErase()
+{
+    std::vector< int > wektor = make_random_vector< int >(10, 0, 10);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_vector(wektor);
+    std::cout << "size:" << std::endl << wektor.size() << std::endl << std::endl;
+
+    wektor.erase(std::remove(wektor.begin(), wektor.end(), 3), wektor.end());
+
+    std::cout << "Wektor po usunieciu liczby 3:" << std::endl;
+    print_vector(wektor);
+    std::cout << "size:" << std::endl << wektor.size() << std::endl;
+}
+
 int main()
 {
-    sortSubVector();
+    idiomRemoveErase();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
-  Iloczny sklarny:
-  15.4
+  Wygenerowany wektor:
+  5 4 3 8 7 8 10 3 1 6 
+  size:
+  10
+
+  Wektor po usunieciu liczby 3:
+  5 4 8 7 8 10 1 6 
+  size:
+  8
 */

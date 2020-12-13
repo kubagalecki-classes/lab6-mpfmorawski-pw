@@ -163,58 +163,16 @@ bool isPiesekOrKotekIn()
 
 int main()
 {
-    zadanie1();
-    std::cout << std::endl;
-    zadanie2();
-    std::cout << std::endl;
-    zadanie3();
-    std::cout << std::endl;
-    zadanie4();
-    std::cout << std::endl;
-    zadanie6();
-    std::cout << std::endl;
-    zadanie7();
-
+    if (isPiesekOrKotekIn())
+        std::cout << "Podciag piesek lub podciag kotek znaleziony" << std::endl;
+    else
+        std::cout << "Podciag piesek lub podciag kotek nie zostal znaleziony" << std::endl;
+    return 0;
 }
 
 /* Po uruchomieniu otrzymano:
-9 2 10 7 6 2 4 7 1 7 
-1 2 2 4 6 7 7 7 9 10 
-
-Wygenerowany wektor:
-2 6 2 9 2 0 2 0 1 7 
-Posortowany wektor:
-0 0 1 2 2 2 2 6 7 9 
-Liczba wystapien elementu 7:
-1
-
-Wygenerowany wektor:
-10 9 3 9 9 2 0 5 4 4 
-Wektor posortowany malejaco
-10 9 9 9 5 4 4 3 2 0 
-
-Wygenerowany wektor:
-3 4 2 3 7 2 6 3 10 3 
-Posortowany wektor:
-2 2 3 3 3 3 4 6 7 10 
-Liczba wystapien elementow wiekszych od 7:
-1
-
-Wygenerowany wektor:
-7 10 6 9 1 7 8 10 1 6 
-Posortowany wektor:
-1 1 6 6 7 7 8 9 10 10 
-Podaj liczbe:
-5
-Liczba wystapien elementow wiekszych od podanej liczby:
-8
-
-Wygenerowany wektor:
-4 2 2 6 10 2 4 10 0 1 
-Posortowany wektor:
-0 1 2 2 2 4 4 6 10 10 
-Podaj liczbe:
-5
-Liczba wystapien elementow wiekszych od podanej liczby:
-3
+  Podaj zmienna typu string
+  piesekotexD
+  Znaleziono podciag piesek
+  Podciag piesek lub podciag kotek znaleziony
 */

@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -228,15 +229,44 @@ void findAndRotate()
     print_vector(wektor);
 }
 
+/* Ćwiczenie VIII - std::any_of */
+
+void print_float_vector(std::vector< float > wektor)
+{
+    for (const float i : wektor)
+        std::cout << std::fixed << std::setprecision(2) << i << std::endl;
+    std::cout << std::endl;
+}
+
+void anyMoreThan0p9()
+{
+    std::vector< float > wektor = make_random_vector< float >(10, -1., 1.);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_float_vector(wektor);
+    if (std::any_of(wektor.begin(), wektor.end(), [&](float i) { return (i > 0.9); }))
+        std::cout << "Jest element wiekszy od 0.9" << std::endl;
+    else
+        std::cout << "Nie ma elementu wiekszego od 0.9" << std::endl;
+}
+
 int main()
 {
-    findAndRotate();
+    anyMoreThan0p9();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
-    Wygenerowany wektor:
-    0 3 5 7 1 3 9 3 3 5 
-    Obrocony wektor:
-    7 1 3 9 3 3 5 0 3 5 
+  Wygenerowany wektor:
+  0.38
+  0.90
+  -0.61
+  0.91
+  0.83
+  -0.14
+  0.97
+  -0.39
+  0.47
+  -0.73
+
+  Jest element wiekszy od 0.9
 */

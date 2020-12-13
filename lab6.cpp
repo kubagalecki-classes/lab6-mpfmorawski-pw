@@ -194,7 +194,7 @@ void sortSubVector()
     print_vector(wektor);
     std::vector< int >::iterator it = std::find(wektor.begin(), wektor.end(), 7);
     std::sort(wektor.begin(), it);
-    std::cout << "Wektor posortowany przed pierwszym wystapieniem liczbt 7:" << std::endl;
+    std::cout << "Wektor posortowany przed pierwszym wystapieniem liczby 7:" << std::endl;
     print_vector(wektor);
 }
 
@@ -214,20 +214,29 @@ void idiomRemoveErase()
     std::cout << "size:" << std::endl << wektor.size() << std::endl;
 }
 
+/* Ćwiczenie VII - std::find i std::rotate */
+
+void findAndRotate()
+{
+    std::vector< int > wektor = make_random_vector< int >(10, 0, 10);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_vector(wektor);
+
+    std::rotate(wektor.begin(), std::find(wektor.begin(), wektor.end(), 7), wektor.end());
+
+    std::cout << "Obrocony wektor:" << std::endl;
+    print_vector(wektor);
+}
+
 int main()
 {
-    idiomRemoveErase();
+    findAndRotate();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
-  Wygenerowany wektor:
-  5 4 3 8 7 8 10 3 1 6 
-  size:
-  10
-
-  Wektor po usunieciu liczby 3:
-  5 4 8 7 8 10 1 6 
-  size:
-  8
+    Wygenerowany wektor:
+    0 3 5 7 1 3 9 3 3 5 
+    Obrocony wektor:
+    7 1 3 9 3 3 5 0 3 5 
 */

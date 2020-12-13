@@ -243,7 +243,7 @@ void anyMoreThan0p9()
     std::vector< float > wektor = make_random_vector< float >(10, -1., 1.);
     std::cout << "Wygenerowany wektor:" << std::endl;
     print_float_vector(wektor);
-    if (std::any_of(wektor.begin(), wektor.end(), [&](float i) { return (i > 0.9); }))
+    if (std::any_of(wektor.begin(), wektor.end(), [](float i) { return (i > 0.9); }))
         std::cout << "Jest element wiekszy od 0.9" << std::endl;
     else
         std::cout << "Nie ma elementu wiekszego od 0.9" << std::endl;
@@ -259,30 +259,36 @@ void transformIntoSinus()
     std::vector< float > wektorSinusow(5);
 
     std::transform(
-        wektor.begin(), wektor.end(), wektorSinusow.begin(), [&](float i) { return sin(i); });
+        wektor.begin(), wektor.end(), wektorSinusow.begin(), [](float i) { return sin(i); });
 
     std::cout << "Wektor sinusow:" << std::endl;
     print_float_vector(wektorSinusow);
 }
 
+/* Ćwiczenie X - std::partion i std::sort */
+
+void partitionAndSort()
+{
+    std::vector< int > wektor = make_random_vector< int >(10, 0, 10);
+    std::cout << "Wygenerowany wektor:" << std::endl;
+    print_vector(wektor);
+
+    std::sort(wektor.begin(),
+              std::partition(wektor.begin(), wektor.end(), [](int i) { return (i > 6); }));
+
+    std::cout << "Wygenerowany po partycji i posortowaniu liczb wiekszych od 6:" << std::endl;
+    print_vector(wektor);
+}
+
 int main()
 {
-    transformIntoSinus();
+    partitionAndSort();
     return 0;
 }
 
 /* Po uruchomieniu otrzymano:
   Wygenerowany wektor:
-  -0.60
-  0.98
-  -0.40
-  0.38
-  0.23
-
-  Wektor sinusow:
-  -0.56
-  0.83
-  -0.39
-  0.37
-  0.23
+  5 2 10 10 1 10 7 10 6 7 
+  Wygenerowany po partycji i posortowaniu liczb wiekszych od 6:
+  7 7 10 10 10 10 1 2 6 5 
 */
